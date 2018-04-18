@@ -1,7 +1,9 @@
-#eth:
-#  image: kunstmaan/ethereum-eth
-#  stdin_open: true
-#  tty: true
+eth:
+  image: kunstmaan/ethereum-eth
+  stdin_open: true
+  tty: true
+  volumes:
+    - ./data:/root/.ethereum
 
 gethconsole:
   image: kunstmaan/ethereum-geth-console
