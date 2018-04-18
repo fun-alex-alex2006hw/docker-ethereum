@@ -3,12 +3,14 @@ eth:
   stdin_open: true
   tty: true
   volumes:
-    - ./data:/root/.ethereum
+    - ./data/eth:/root/.ethereum
 
 gethconsole:
   image: kunstmaan/ethereum-geth-console
   stdin_open: true
   tty: true
+  volumes:
+    - ./data/geth:/root/.ethereum
   links:
     - devnet
     - testnet
@@ -17,11 +19,15 @@ testnet:
   image: kunstmaan/ethereum-geth-testnet
   stdin_open: true
   tty: true
+  volumes:
+    - ./data/test:/root/.ethereum
 
 devnet:
   image: kunstmaan/ethereum-geth-devnet
   stdin_open: true
   tty: true
+  volumes:
+    - ./data/dev:/root/.ethereum
   expose:
     - 8545
     - 30303
